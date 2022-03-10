@@ -26,12 +26,15 @@ function addBookCard(Book, index) {
     let card = document.createElement("div");
     let title = document.createElement("p");
     let author = document.createElement("p");
-    let read = document.createElement("p");
+    let read = document.createElement("button");
     let remove = document.createElement("button")
 
     title.innerText = Book.title;
     author.innerText = `${Book.author}, ${Book.year}`;
+
     read.innerText = Book.read ? "Already read" : "Still unread";
+    read.setAttribute('onclick', 'toggleRead(this.getAttribute("data-index"));')
+    read.setAttribute('data-index', index);
 
     remove.innerText = "Remove";
     remove.setAttribute('onclick', 'removeBook(this.getAttribute("data-index"))');
@@ -112,4 +115,10 @@ function addBook() {
 function removeBook(index) {
     myLibrary.splice(index, 1);
     addBookCards(myLibrary);
+}
+
+function toggleRead(index) {
+    myLibrary[index].toggleRead();
+    addBookCards(myLibrary);
+    
 }
