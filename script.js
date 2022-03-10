@@ -49,6 +49,10 @@ addBookCards(myLibrary);
  *  Put it at the bottom of body.
 */
 function newBook() {
+
+    // if a form already exists, exit.
+    if (document.querySelector(".new-book-form")) return false;
+
     let body = document.querySelector("body");
     let form = document.createElement("form");
 
@@ -61,7 +65,11 @@ function newBook() {
     <input type="tel" id="year">
     <input type="checkbox" id="read">
     <label for="read">Already read</label>
+    <button>Add Book</button>
     `;
 
+    form.classList.add("new-book-form");
+
     body.appendChild(form);
+    return true;
 }
