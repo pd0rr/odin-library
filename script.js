@@ -65,7 +65,7 @@ function newBook() {
     <input type="tel" id="year">
     <input type="checkbox" id="read">
     <label for="read">Already read</label>
-    <button onclick="addBook" type="button">Add Book</button>
+    <button onclick="addBook" type="button">Submit</button>
     `;
 
     form.classList.add("new-book-form");
