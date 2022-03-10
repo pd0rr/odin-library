@@ -38,6 +38,9 @@ function addBookCard(Book) {
 }
 
 function addBookCards(library) {
+    //first, clear container
+    document.querySelector(".book-container").innerHTML = "";
+
     for (const b of library) {
         addBookCard(b);
     }
@@ -65,11 +68,33 @@ function newBook() {
     <input type="tel" id="year">
     <input type="checkbox" id="read">
     <label for="read">Already read</label>
-    <button onclick="addBook" type="button">Submit</button>
+    <button onclick="addBook()" type="button">Submit</button>
     `;
 
     form.classList.add("new-book-form");
 
     body.appendChild(form);
     return true;
+}
+
+/**
+ * Add book to library from user input form.
+ */
+function addBook() {
+    // get values
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const year = document.querySelector("#year").value;
+    const read = document.querySelector("#read").checked;
+
+    const b = new Book(title, author, year, read);
+    console.log(b);
+    myLibrary.push(b);
+
+    // remove form
+    const form = document.querySelector(".new-book-form");
+    form.remove();
+
+    // refresh cards
+    addBookCards(myLibrary);
 }
