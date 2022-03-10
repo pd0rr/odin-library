@@ -16,7 +16,7 @@ function addBookToLibrary(book) {
 // placeholder book
 myLibrary.push(new Book("Placehoder Title", "Max Power", "1969", true));
 
-function addBookCard(Book) {
+function addBookCard(Book, index) {
     let container = document.querySelector(".book-container");
 
     let card = document.createElement("div");
@@ -28,7 +28,10 @@ function addBookCard(Book) {
     title.innerText = Book.title;
     author.innerText = `${Book.author}, ${Book.year}`;
     read.innerText = Book.read ? "Already read" : "Still unread";
+
     remove.innerText = "Remove";
+    remove.setAttribute('onclick', 'removeBook(this.getAttribute("data-index"))');
+    remove.setAttribute('data-index', index);
 
     card.appendChild(title);
     card.appendChild(author);
@@ -44,8 +47,8 @@ function addBookCards(library) {
     //first, clear container
     document.querySelector(".book-container").innerHTML = "";
 
-    for (const b of library) {
-        addBookCard(b);
+    for (let i = 0; i < library.length; i++) {
+        addBookCard(library[i], i);
     }
 }
 
@@ -99,5 +102,10 @@ function addBook() {
     form.remove();
 
     // refresh cards
+    addBookCards(myLibrary);
+}
+
+function removeBook(index) {
+    myLibrary.splice(index, 1);
     addBookCards(myLibrary);
 }
