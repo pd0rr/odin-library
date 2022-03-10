@@ -23,14 +23,17 @@ function addBookCard(Book) {
     let title = document.createElement("p");
     let author = document.createElement("p");
     let read = document.createElement("p");
+    let remove = document.createElement("button")
 
     title.innerText = Book.title;
     author.innerText = `${Book.author}, ${Book.year}`;
     read.innerText = Book.read ? "Already read" : "Still unread";
+    remove.innerText = "Remove";
 
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(read);
+    card.appendChild(remove);
 
     card.classList.add("book-card");
     card.classList.add(Book.read ? "read" : "unread");
