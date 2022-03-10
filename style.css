@@ -9,6 +9,14 @@
     padding: 5px;
 }
 
+.book-card.read {
+    background-color: lightgreen;
+}
+
+.book-card.unread {
+    background-color: pink;
+}
+
 .new-book-form {
     display: flex;
     flex-direction: column;
