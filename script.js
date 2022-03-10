@@ -60,14 +60,14 @@ function newBook() {
     let form = document.createElement("form");
 
     form.innerHTML = `
-    <label for="title">Title</label>
-    <input type="text" id="title">
-    <label for="author">Author</label>
-    <input type="text" id="author">
-    <label for="year">Year</label>
-    <input type="tel" id="year">
-    <input type="checkbox" id="read">
-    <label for="read">Already read</label>
+    <label for="title">Title
+    <input type="text" id="title"></label>
+    <label for="author">Author
+    <input type="text" id="author"></label>
+    <label for="year">Year
+    <input type="tel" id="year"></label>
+    <label for="read"><input type="checkbox" id="read">
+    Already read</label>
     <button onclick="addBook()" type="button">Submit</button>
     `;
 
