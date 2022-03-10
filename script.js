@@ -10,3 +10,6 @@ function Book(title, author, year, read) {
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
+
+// placeholder book
+myLibrary.push(new Book("Placehoder Title", "Max Power", "1969", true));
