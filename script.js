@@ -120,5 +120,4 @@ function removeBook(index) {
 function toggleRead(index) {
     myLibrary[index].toggleRead();
     addBookCards(myLibrary);
-    
 }
