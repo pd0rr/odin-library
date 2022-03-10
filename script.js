@@ -44,3 +44,24 @@ function addBookCards(library) {
 }
 
 addBookCards(myLibrary);
+
+/** Pops out a form (modal?) where info on new book can be inserted.
+ *  Put it at the bottom of body.
+*/
+function newBook() {
+    let body = document.querySelector("body");
+    let form = document.createElement("form");
+
+    form.innerHTML = `
+    <label for="title">Title</label>
+    <input type="text" id="title">
+    <label for="author">Author</label>
+    <input type="text" id="author">
+    <label for="year">Year</label>
+    <input type="tel" id="year">
+    <input type="checkbox" id="read">
+    <label for="read">Already read</label>
+    `;
+
+    body.appendChild(form);
+}
