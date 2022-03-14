@@ -2,16 +2,18 @@
 
 let myLibrary = [];
 
-function Book(title, author, year, read) {
-    this.title = title;
-    this.author = author;
-    this.year = year;
-    this.read = read;
+class Book {
+    constructor(title, author, year, read) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.read = read;
+    }
+    toggleRead() {
+        this.read = !(this.read);
+    }
 }
 
-Book.prototype.toggleRead = function() {
-    this.read = !(this.read);
-}
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
